@@ -19,3 +19,20 @@ When(/^Click on the first element$/, async function() {
 Then(/^(.*) page should load$/, async function(portal:string) {
   chai.expect(await browser.getUrl()).to.contains(portal);
 });
+
+When(/^User click on (.*)$/, async function(param:string) {
+  if( param === 'big_play'){
+    // let big_play_button = await $(`button[class='vjs-big-play-button']`);
+    // await big_play_button.click();
+  } else if(param === 'play'){
+    let play_button = await $(`button[title='Play']`);
+    await play_button.click();
+  } else {
+    let pause_button = await $(`button[title='Pause']`);
+    await pause_button.click();
+  }
+});
+
+When(/^Wait for (.*) second[|s]$/, async function(seconds:number) {
+  await browser.pause(seconds * 1000);
+});
