@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "npm run report:clear ; wdio run wdio.conf.ts",
+        "test_browserstack": "npm run report:clear ; wdio run browserstack_wdio.conf.ts",
         "report:clear": "rm -rf ./allure-results ./allure-report"
     },
     "repository": {
